@@ -69,7 +69,7 @@ export const Login = async (req: Request, res: Response) => {
         })
     }
 
-    const token = sign({id: user.id}, process.env.SECRET_KEY);
+    const token = sign({id: user.id,idFirebase:user.idFirebase}, process.env.SECRET_KEY);
 
     res.cookie('jwt', token, {
         httpOnly: true,
