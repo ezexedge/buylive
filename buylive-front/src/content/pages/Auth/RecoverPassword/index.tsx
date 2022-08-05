@@ -92,22 +92,13 @@ function RecoverPasswordBasic() {
       <ContentWrapper title="Recover Password">
         <MainContent>
           <Container maxWidth="sm">
-            <Logo />
+        
             <Card sx={{ mt: 3, p: 4 }}>
               <Box>
                 <Typography variant="h2" sx={{ mb: 1 }}>
                   {t('Recover Password')}
                 </Typography>
-                <Typography
-                  variant="h4"
-                  color="text.secondary"
-                  fontWeight="normal"
-                  sx={{ mb: 3 }}
-                >
-                  {t(
-                    'Enter the email used for registration to reset your password.'
-                  )}
-                </Typography>
+             
               </Box>
 
               <Formik
@@ -155,7 +146,7 @@ function RecoverPasswordBasic() {
                       error={Boolean(touched.email && errors.email)}
                       fullWidth
                       helperText={touched.email && errors.email}
-                      label={t('Email address')}
+                      label={t('Email')}
                       margin="normal"
                       name="email"
                       onBlur={handleBlur}
@@ -175,25 +166,13 @@ function RecoverPasswordBasic() {
                       size="large"
                       variant="contained"
                     >
-                      {t('Send me a new password')}
+                      {t('Enviarme un nuevo password')}
                     </Button>
                   </form>
                 )}
               </Formik>
             </Card>
-            <Box mt={3} textAlign="right">
-              <Typography
-                component="span"
-                variant="subtitle2"
-                color="text.primary"
-                fontWeight="bold"
-              >
-                {t('Want to try to sign in again?')}
-              </Typography>{' '}
-              <Link component={RouterLink} to="/login">
-                <b>Click here</b>
-              </Link>
-            </Box>
+          
           </Container>
         </MainContent>
       </ContentWrapper>

@@ -115,9 +115,9 @@ function LoginJWT() {
               label={
                 <>
                   <Typography variant="body2">
-                    {t('I accept the')}{' '}
+                    {t('Acepto')}{' '}
                     <Link component="a" href="#">
-                      {t('terms and conditions')}
+                      {t('terminos y condiciones')}
                     </Link>
                     .
                   </Typography>
@@ -125,7 +125,7 @@ function LoginJWT() {
               }
             />
             <Link component={RouterLink} to="/recover-password">
-              <b>{t('Lost password?')}</b>
+              <b>{t('Olvidaste tu password?')}</b>
             </Link>
           </Box>
 
@@ -143,7 +143,7 @@ function LoginJWT() {
             size="large"
             variant="contained"
           >
-            {t('Sign in')}
+            {t('Iniciar sesión')}
           </Button>
         </form>
       )}

@@ -57,6 +57,8 @@ const SidebarContent = experimentalStyled(Box)(
   justify-content: center;
   height: 100%;
   padding: ${theme.spacing(6)};
+  background-color: #1975FF;
+
 `
 );
 
@@ -93,55 +95,13 @@ function LoginCover() {
           <SidebarWrapper>
             <Scrollbars autoHide>
               <SidebarContent>
-                <Logo />
-                <Box mt={6}>
-                  <TypographyH1 variant="h1" sx={{ mb: 7 }}>
-                    {t('Multiple auth methods included')}
+               
+                <Box>
+                  <TypographyH1 variant="h1" style={{'color': 'white','textAlign':'center'}}>
+                    Buylive
                   </TypographyH1>
 
-                  <Tooltip arrow placement="top" title="Auth0">
-                    <CardImg sx={{ width: 80, height: 80, top: -50 }}>
-                      <img width={40} alt="Auth0" src={icons['Auth0']} />
-                    </CardImg>
-                  </Tooltip>
-                  <Tooltip arrow placement="top" title="Firebase">
-                    <CardImg sx={{ width: 90, height: 90, right: -15 }}>
-                      <img
-                        width={50}
-                        alt="Firebase"
-                        src={icons['FirebaseAuth']}
-                      />
-                    </CardImg>
-                  </Tooltip>
-                  <Tooltip arrow placement="top" title="JSON Web Token">
-                    <CardImg
-                      sx={{ width: 120, height: 120, top: -30, right: -30 }}
-                    >
-                      <img width={80} alt="JSON Web Token" src={icons['JWT']} />
-                    </CardImg>
-                  </Tooltip>
-
-                  <Typography variant="subtitle1" sx={{ my: 3 }}>
-                    {t(
-                      'Choose between JSON Web Token, Firebase or Auth0. Regular login/register functionality is also available.'
-                    )}
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    color="text.primary"
-                    fontWeight="bold"
-                  >
-                    {t('Want to switch auth methods?')}
-                  </Typography>
-                  <Typography variant="subtitle1">
-                    {t(
-                      'It only takes seconds. There is a documentation section showing how to do exactly that'
-                    )}
-                    .{' '}
-                    <Link component={RouterLink} to="/documentation">
-                      Read docs
-                    </Link>
-                  </Typography>
+                 
                 </Box>
               </SidebarContent>
             </Scrollbars>
@@ -152,7 +112,7 @@ function LoginCover() {
             <Card sx={{ mt: 3, px: 4, py: 5 }}>
               <Box textAlign="center">
                 <Typography variant="h2" sx={{ mb: 1 }}>
-                  {t('Sign in')}
+                  {t('Inicia sesión')}
                 </Typography>
                 <Typography
                   variant="h4"
@@ -160,7 +120,6 @@ function LoginCover() {
                   fontWeight="normal"
                   sx={{ mb: 3 }}
                 >
-                  {t('Fill in the fields below to sign into your account.')}
                 </Typography>
               </Box>
               {method === 'Auth0' && <Auth0Login />}
@@ -173,24 +132,14 @@ function LoginCover() {
                   color="text.primary"
                   fontWeight="bold"
                 >
-                  {t('Don’t have an account, yet?')}
+                  {t('no tienes una cuenta?')}
                 </Typography>{' '}
                 <Link component={RouterLink} to="/register">
-                  <b>Sign up here</b>
+                  <b>Registrarme</b>
                 </Link>
               </Box>
             </Card>
-            {method !== 'Auth0' && (
-              <Tooltip
-                title={t('Used only for the live preview demonstration !')}
-              >
-                <Card sx={{ p: 2, my: 3 }}>
-                  <Alert severity="warning">
-                    Use <b>demo@example.com</b> and password <b>TokyoPass1@</b>
-                  </Alert>
-                </Card>
-              </Tooltip>
-            )}
+            
           </Container>
         </MainContent>
       </Content>

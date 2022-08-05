@@ -1,3 +1,5 @@
+import React,{useState,useEffect} from 'react';
+
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -51,10 +53,11 @@ const MainContent = experimentalStyled(Box)(
   () => `
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     overflow: auto;
     position: relative;
+
 `
 );
 
@@ -72,6 +75,8 @@ const SidebarContent = experimentalStyled(Box)(
   justify-content: center;
   height: 100%;
   padding: ${theme.spacing(6)};
+  background-color: #1975FF;
+
 `
 );
 
@@ -160,10 +165,27 @@ const SwiperWrapper = experimentalStyled(Box)(
       }
 `
 );
+const TypographyH1 = experimentalStyled(Typography)(
+  ({ theme }) => `
+    font-size: ${theme.typography.pxToRem(33)};
+`
+);
+
+const TypographyH3 = experimentalStyled(Typography)(
+  ({ theme }) => `
+    font-size: ${theme.typography.pxToRem(20)};
+`
+);
 
 function RegisterCover() {
   const { method } = useAuth() as any;
   const { t }: { t: any } = useTranslation();
+  
+  const [change,setChange] = useState(false)
+
+
+
+
 
   return (
     <ContentWrapper title="Register - Cover">
@@ -172,173 +194,37 @@ function RegisterCover() {
           <SidebarWrapper>
             <Scrollbars autoHide>
               <SidebarContent>
-                <Box mb={2} display="flex" justifyContent="center">
-                  <SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
-                    <ChevronLeftTwoToneIcon fontSize="large" />
-                  </SwipeIndicator>
-                  <SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
-                    <ChevronRightTwoToneIcon fontSize="large" />
-                  </SwipeIndicator>
-                </Box>
-                <TypographyPrimary
-                  align="center"
-                  variant="h3"
-                  sx={{ mb: 4, px: 8 }}
-                >
-                  {t('Multiple authentication methods available')}
-                </TypographyPrimary>
-                <SwiperWrapper>
-                  <Swiper
-                    spaceBetween={0}
-                    slidesPerView={1}
-                    loop
-                    navigation={{
-                      nextEl: '.MuiSwipe-right',
-                      prevEl: '.MuiSwipe-left'
-                    }}
-                    pagination={{ dynamicBullets: true, clickable: true }}
-                  >
-                    <SwiperSlide>
-                      <Box textAlign="center">
-                        <CardImg>
-                          <img
-                            height={80}
-                            alt="JSON Web Token"
-                            src={icons['Auth0']}
-                          />
-                        </CardImg>
-                        <TypographyPrimary
-                          align="center"
-                          variant="h3"
-                          sx={{ mb: 2 }}
-                        >
-                          Auth0
-                        </TypographyPrimary>
-                        <TypographySecondary
-                          align="center"
-                          variant="subtitle2"
-                          sx={{ mb: 5 }}
-                        >
-                          Auth0 is an easy to implement, adaptable
-                          authentication and authorization platform.
-                        </TypographySecondary>
-                      </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Box textAlign="center">
-                        <CardImg>
-                          <img
-                            height={80}
-                            alt="JSON Web Token"
-                            src={icons['JWT']}
-                          />
-                        </CardImg>
-                        <TypographyPrimary
-                          align="center"
-                          variant="h3"
-                          sx={{ mb: 2 }}
-                        >
-                          JSON Web Token
-                        </TypographyPrimary>
-                        <TypographySecondary
-                          align="center"
-                          variant="subtitle2"
-                          sx={{ mb: 5 }}
-                        >
-                          JSON Web Tokens are an open method for representing
-                          claims securely between two parties.
-                        </TypographySecondary>
-                      </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Box textAlign="center">
-                        <CardImg>
-                          <img
-                            height={80}
-                            alt="Firebase"
-                            src={icons['FirebaseAuth']}
-                          />
-                        </CardImg>
-                        <TypographyPrimary
-                          align="center"
-                          variant="h3"
-                          sx={{ mb: 2 }}
-                        >
-                          Firebase
-                        </TypographyPrimary>
-                        <TypographySecondary
-                          align="center"
-                          variant="subtitle2"
-                          sx={{ mb: 5 }}
-                        >
-                          Firebase helps teams from startups to global
-                          enterprises build &amp; run successful apps.
-                        </TypographySecondary>
-                      </Box>
-                    </SwiperSlide>
-                  </Swiper>
-                </SwiperWrapper>
-
-                <DividerWrapper sx={{ mt: 3, mb: 4 }} />
                 <Box>
-                  <TypographyPrimary variant="h3" sx={{ mb: 3 }}>
-                    {t('Start your free trial today')}
-                  </TypographyPrimary>
-
-                  <List dense sx={{ mb: 3 }}>
-                    <ListItem disableGutters>
-                      <ListItemIconWrapper>
-                        <CheckCircleOutlineTwoToneIcon />
-                      </ListItemIconWrapper>
-                      <ListItemTextWrapper
-                        primaryTypographyProps={{ variant: 'h6' }}
-                        primary={t('premium features included')}
-                      />
-                    </ListItem>
-                    <ListItem disableGutters>
-                      <ListItemIconWrapper>
-                        <CheckCircleOutlineTwoToneIcon />
-                      </ListItemIconWrapper>
-                      <ListItemTextWrapper
-                        primaryTypographyProps={{ variant: 'h6' }}
-                        primary={t('no credit card required')}
-                      />
-                    </ListItem>
-                    <ListItem disableGutters>
-                      <ListItemIconWrapper>
-                        <CheckCircleOutlineTwoToneIcon />
-                      </ListItemIconWrapper>
-                      <ListItemTextWrapper
-                        primaryTypographyProps={{ variant: 'h6' }}
-                        primary={t('modern development solutions')}
-                      />
-                    </ListItem>
-                  </List>
+                <TypographyH1 variant="h1" style={{'color': 'white','textAlign':'center'}}>
+                    Buylive
+                  </TypographyH1>
+                     <TypographyH3 variant="h4" style={{'color': 'white','textAlign':'center','marginTop':'20px'}}>
+                  Queres ser representante?
+                  </TypographyH3>
+                  <TypographyH3 variant="h4" onClick={()=> setChange(prev => !prev)} style={{'color': 'white','textAlign':'center','textDecoration':'underline','cursor':'pointer'}}>
+                      Haz click
+                  </TypographyH3>
                 </Box>
               </SidebarContent>
             </Scrollbars>
           </SidebarWrapper>
         </Hidden>
         <MainContent>
-          <Hidden smDown>
-            <LogoWrapper>
-              <Logo />
-            </LogoWrapper>
-          </Hidden>
+      
           <Container maxWidth="sm">
             <Card sx={{ px: 4, py: 5 }}>
               <Box textAlign="center">
                 <Typography variant="h2" sx={{ mb: 1 }}>
-                  {t('Create account')}
+                {!change ? 
+
+                  'Registrarme como usuario'
+
+                 :
+                 'Registrarme como representante'
+
+                 }
                 </Typography>
-                <Typography
-                  variant="h4"
-                  color="text.secondary"
-                  fontWeight="normal"
-                  sx={{ mb: 3 }}
-                >
-                  {t('Fill in the fields below to sign up for an account.')}
-                </Typography>
+              
               </Box>
               {method === 'Auth0' && <Auth0Register />}
               {method === 'FirebaseAuth' && <FirebaseAuthRegister />}
