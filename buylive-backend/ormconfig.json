@@ -1,0 +1,13 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 8889,
+  "username": "root",
+  "password": "root",
+  "database": "buylive",
+  "entities": [
+    "src/entity/*.ts"
+  ],
+  "logging": false,
+  "synchronize": true
+}
