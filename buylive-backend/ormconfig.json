@@ -8,6 +8,7 @@
   "entities": [
     "src/entity/*.ts"
   ],
+  "autoLoadEntities": true,
   "logging": false,
   "synchronize": true
 }
